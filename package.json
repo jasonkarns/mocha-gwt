@@ -8,7 +8,7 @@
     "test": "npm run unit && npm run e2e",
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
-    "build": "browserify --extension=.coffee --outfile gwt.js --exclude mocha lib/mocha-gwt"
+    "build": "browserify --extension=.coffee --outfile gwt.js lib/mocha-gwt"
   },
   "repository": {
     "type": "git",
