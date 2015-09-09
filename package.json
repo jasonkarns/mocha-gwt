@@ -3,12 +3,13 @@
   "version": "0.2.1",
   "description": "Given When Then for Mocha",
   "main": "index.js",
+  "browser": "lib/mocha-gwt.coffee",
   "scripts": {
     "prepublish": "npm test",
     "test": "npm run unit && npm run e2e",
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
-    "build": "browserify --extension=.coffee --outfile gwt.js lib/mocha-gwt"
+    "build": "browserify $npm_package_main --extension=.coffee --outfile gwt.js"
   },
   "repository": {
     "type": "git",
