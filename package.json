@@ -44,6 +44,6 @@
     ]
   },
   "browserify-shim": {
-    "mocha": "global:mocha"
+    "mocha": "global:Mocha"
   }
 }
