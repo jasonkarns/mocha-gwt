@@ -106,10 +106,9 @@ mochaGWT = (suite) ->
           test.pending = shouldSkip
           s.addTest test
 
-    if processedFiles.length == mocha.files.length
-      processedFiles.forEach (f) ->
-        blockList[f].forEach (block) ->
-          buildMochaSuite block, f
+    processedFiles.forEach (f) ->
+      blockList[f].forEach (block) ->
+        buildMochaSuite block, f
 
     beforeAlls[file].forEach (fn) ->
       fileParents[file].beforeAll fn unless determineSkip blockList[file][0]
