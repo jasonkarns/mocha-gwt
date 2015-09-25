@@ -22,7 +22,7 @@ mochaGWT = (suite) ->
   determineSkip = (block) ->
     block.pending == true || (onlyFound && !block.only)
 
-  suite.on 'pre-require', (context, file, mocha) ->
+  suite.on 'pre-require', (context, file='browser', mocha) ->
     depth = 0
     context.currentBlock = null
     lastAtDepth = {}
@@ -68,7 +68,7 @@ mochaGWT = (suite) ->
 
     context.afterBlock = (fn) -> context.currentBlock.afterBlocks.push fn
 
-  suite.on 'post-require', (context, file, mocha) ->
+  suite.on 'post-require', (context, file='browser', mocha) ->
     processedFiles.push file
     fileParents[file] = Suite.create suite, ''
 
