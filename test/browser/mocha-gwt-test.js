@@ -16,13 +16,13 @@ describe('mocha-gwt', function() {
   })(this);
   beforeAllCheck = 1;
   beforeAll(function() {
-    global.cleanMeUp = 'dirty';
+    window.cleanMeUp = 'dirty';
     if (beforeAllCheck++ > 1) {
       throw new Error('Before all was called more than once');
     }
   });
   afterAll(function() {
-    return global.cleanMeUp = void 0;
+    return window.cleanMeUp = void 0;
   });
   Given(function() {
     return this.result = '';
@@ -159,16 +159,16 @@ describe('mocha-gwt', function() {
   });
   return describe('aliases', function() {
     Then(function() {
-      return global.context === describe;
+      return window.context === describe;
     });
     Then(function() {
-      return global.context.skip === describe.skip;
+      return window.context.skip === describe.skip;
     });
     And(function() {
-      return global.xcontext === describe.skip;
+      return window.xcontext === describe.skip;
     });
     Then(function() {
-      return global.context.only === describe.only;
+      return window.context.only === describe.only;
     });
   });
 });
