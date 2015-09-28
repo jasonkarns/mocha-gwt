@@ -1,7 +1,13 @@
 {
   "name": "mocha-gwt",
   "version": "0.2.1",
+  "author": "",
+  "license": "ISC",
   "description": "Given When Then for Mocha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheLudd/mocha-gwt"
+  },
   "main": "index.js",
   "browser": "lib/mocha-gwt.coffee",
   "config": {
@@ -14,14 +20,10 @@
     "e2e": "coffee runtest.coffee",
     "build": "browserify . --extension=.coffee -o $npm_package_config_build_file"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TheLudd/mocha-gwt"
-  },
-  "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "mocha": ">=1.20.1"
+  "dependencies": {
+    "assertion-error": "^1.0.0",
+    "coffee-script": "^1.7.1",
+    "ramda": "^0.17.1"
   },
   "devDependencies": {
     "bluebird": "^2.3.5",
@@ -32,10 +34,8 @@
     "mocha": "^2.0.0",
     "nodemon": "^1.4.1"
   },
-  "dependencies": {
-    "assertion-error": "^1.0.0",
-    "coffee-script": "^1.7.1",
-    "ramda": "^0.17.1"
+  "peerDependencies": {
+    "mocha": ">=1.20.1"
   },
   "browserify": {
     "transform": [
