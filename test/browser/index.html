@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha-GWT in Browser</title>
+
+    <!-- mocha core -->
+    <link href="../../node_modules/mocha/mocha.css" rel="stylesheet" />
+    <script src="../../node_modules/mocha/mocha.js"></script>
+
+    <!-- mocha-gwt -->
+    <script src="../../dist/mocha-gwt.js"></script>
+    <script>mocha.setup('mocha-gwt')</script>
+
+    <!-- tests and sut -->
+    <script src="./mocha-gwt-test.js"></script>
+  </head>
+  <body>
+    <!-- container for mocha reporter -->
+    <div id="mocha"></div>
+
+    <!-- temporary until mocha PR #1905 is merged -->
+    <script>mocha.suite.emit('post-require', window, null, mocha)</script>
+
+    <!-- kickoff mocha -->
+    <script>mocha.run()</script>
+  </body>
+</html>
