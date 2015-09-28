@@ -106,15 +106,17 @@ mochaGWT = (suite) ->
           test.pending = shouldSkip
           s.addTest test
 
-    processedFiles.forEach (f) ->
-      blockList[f].forEach (block) ->
-        buildMochaSuite block, f
+    if processedFiles.length == mocha.files.length || isInBrowser(mocha)
+      processedFiles.forEach (f) ->
+        blockList[f].forEach (block) ->
+          buildMochaSuite block, f
 
     beforeAlls[file].forEach (fn) ->
       fileParents[file].beforeAll fn unless determineSkip blockList[file][0]
     afterAlls[file].forEach (fn) ->
       fileParents[file].afterAll fn unless determineSkip blockList[file][0]
 
+isInBrowser = (mocha) -> mocha.files.length == 0
 
 module.exports = mochaGWT
 Mocha.interfaces['mocha-gwt'] = mochaGWT
