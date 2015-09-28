@@ -1,3 +1,9 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function (global){
+var Promise;
+
+Promise = (typeof window !== "undefined" ? window['Promise'] : typeof global !== "undefined" ? global['Promise'] : null);
+
 describe('mocha-gwt', function() {
   var append, beforeAllCheck, resultIs;
   append = (function(_this) {
@@ -16,13 +22,13 @@ describe('mocha-gwt', function() {
   })(this);
   beforeAllCheck = 1;
   beforeAll(function() {
-    window.cleanMeUp = 'dirty';
+    global.cleanMeUp = 'dirty';
     if (beforeAllCheck++ > 1) {
       throw new Error('Before all was called more than once');
     }
   });
   afterAll(function() {
-    return window.cleanMeUp = void 0;
+    return global.cleanMeUp = void 0;
   });
   Given(function() {
     return this.result = '';
@@ -159,16 +165,23 @@ describe('mocha-gwt', function() {
   });
   return describe('aliases', function() {
     Then(function() {
-      return window.context === describe;
+      return global.context === describe;
     });
     Then(function() {
-      return window.context.skip === describe.skip;
+      return global.context.skip === describe.skip;
     });
     And(function() {
-      return window.xcontext === describe.skip;
+      return global.xcontext === describe.skip;
     });
     Then(function() {
-      return window.context.only === describe.only;
+      return global.context.only === describe.only;
+    });
+    return And(function() {
+      return global.ccontext === describe.only;
     });
   });
 });
+
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}]},{},[1]);
