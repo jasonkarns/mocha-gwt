@@ -1,7 +1,3 @@
-var Promise;
-
-Promise = require('bluebird');
-
 describe('mocha-gwt', function() {
   var append, beforeAllCheck, resultIs;
   append = (function(_this) {
