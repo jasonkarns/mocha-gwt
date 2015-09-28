@@ -170,6 +170,5 @@ describe('mocha-gwt', function() {
     Then(function() {
       return global.context.only === describe.only;
     });
-    return A;
   });
 });
