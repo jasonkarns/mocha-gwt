@@ -13,7 +13,7 @@
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
     "build": "browserify . --extension=.coffee -o $npm_package_config_build_file",
-    "build:test": "browserify test/e2e/mocha-gwt-test --extension=.coffee -o test/browser/mocha-gwt-test.js"
+    "build:test": "browserify test/e2e/mocha-gwt-test --extension=.coffee -o dist/mocha-gwt-test.js"
   },
   "repository": {
     "type": "git",
