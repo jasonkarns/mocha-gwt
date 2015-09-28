@@ -10,6 +10,7 @@
   "scripts": {
     "prepublish": "npm test",
     "test": "npm run unit && npm run e2e",
+    "posttest": "npm run build:test",
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
     "build": "browserify . --extension=.coffee -o $npm_package_config_build_file",
