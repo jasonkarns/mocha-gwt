@@ -12,7 +12,8 @@
     "test": "npm run unit && npm run e2e",
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
-    "build": "browserify . --extension=.coffee -o $npm_package_config_build_file"
+    "build": "browserify . --extension=.coffee -o $npm_package_config_build_file",
+    "build:test": "browserify test/e2e/mocha-gwt-test --extension=.coffee -o test/browser/mocha-gwt-test.js"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     ]
   },
   "browserify-shim": {
-    "mocha": "global:Mocha"
+    "mocha": "global:Mocha",
+    "bluebird": "global:Promise"
   }
 }
