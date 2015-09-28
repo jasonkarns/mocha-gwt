@@ -18,7 +18,8 @@
     "test": "npm run unit && npm run e2e",
     "unit": "mocha test/unit/",
     "e2e": "coffee runtest.coffee",
-    "build": "browserify . --extension=.coffee -o $npm_package_config_build_file"
+    "build": "browserify . --extension=.coffee -o $npm_package_config_build_file",
+    "version": "npm run build && git add dist"
   },
   "dependencies": {
     "assertion-error": "^1.0.0",
